@@ -1,0 +1,19 @@
+{
+  "version": 2,
+  "builds": [
+    {
+      "src": "backend/vercel_entry.py",
+      "use": "@vercel/python",
+      "config": {
+        "maxLambdaSize": "50mb",
+        "maxDuration": 60
+      }
+    }
+  ],
+  "routes": [
+    {
+      "src": "/(.*)",
+      "dest": "backend/vercel_entry.py"
+    }
+  ]
+}
