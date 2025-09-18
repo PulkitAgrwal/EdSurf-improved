@@ -1,13 +1,6 @@
 services:
   - type: web
-    name: info-reeler
+    name: edsurf
     env: python
-    buildCommand: |
-      apt-get update && apt-get install -y ffmpeg
-      pip install -r requirements.txt
-    startCommand: cd backend && python3 render_entry.py
-    envVars:
-      - key: GEMINI_API_KEY
-        sync: false
-    healthCheckPath: /health
-    plan: free
+    buildCommand: pip install -r backend/requirements.txt
+    startCommand: cd backend && python3 run.py
